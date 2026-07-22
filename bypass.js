@@ -6,16 +6,6 @@
  *        https://lms.example.com/mod/quiz/view.php?id=XXXXXX
  *   2. Open DevTools console (F12 / Cmd+Opt+J).
  *   3. Paste this whole file and press Enter.
- *
- * WHY THIS REPLACES seb.py
- *   - fetch() runs in your already-authenticated tab, so your MoodleSession
- *     cookie is sent automatically (even though it's httpOnly). No password,
- *     no cookie copying, no local server.
- *   - quizaccess_seb_validate_quiz_keys sets SEB access on THIS session when
- *     the hashes match, so we just reload afterwards — the cookie-injection
- *     trick from seb.py is no longer required.
- *
- * This is a faithful port of create_configkey() from seb.py.
  */
 (async () => {
   // Internal marker for the "escape backslashes as a single \" trick (see dumps()).
